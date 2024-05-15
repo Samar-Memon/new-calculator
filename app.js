@@ -13,6 +13,7 @@ const emptyScreen = () => {
 
 document.querySelector('.history-icon').addEventListener('click', () => {
     document.querySelector('.history-group').classList.toggle('top');
+    document.querySelector('.history-icon').classList.toggle('rotate');
 });
 let timeSpan = document.querySelector('.time');
 
@@ -26,9 +27,8 @@ const calc = () => {
     try{
         res = Function('"use strict"; return (' + displayValue + ')')();
         createLi = document.createElement('li');
-        createLi.innerHTML = `<div class='content'><span class="time">${timeLocal}</span>
-        <span class="calculate">${document.getElementById('screen').value}=</span>
-        </div> <i class='fa-solid fa-trash' onclick='reset()'></i>`;
+        createLi.innerHTML = `<span class="time">${timeLocal}</span>
+        <span class="calculate">${document.getElementById('screen').value}= <b>${res}</b></span>`;
         document.querySelector('.history-group').appendChild(createLi);
         document.getElementById('top').innerHTML = `${document.getElementById('screen').value}=`;
         document.getElementById('screen').value = res;
@@ -39,8 +39,8 @@ const calc = () => {
     }
 };
 
-function reset() {
-    createLi.remove();
+function historyRemove() {
+    document.querySelector('.history-group').innerHTML = '<h1>Delete All History <i class="fa-solid fa-trash" onclick="historyRemove()"></i></h1>';
 }
 
 document.getElementById('c').addEventListener('click', () => {

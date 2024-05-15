@@ -4,12 +4,21 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+::-webkit-scrollbar { width: 3px; }
+
+::-webkit-scrollbar-track { background-color: #454545; }
+
+::-webkit-scrollbar-thumb { background-color: #aaa; }
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     position: relative;
+}
+.rotate{
+    transform: rotate(-90deg);
+    transition: transform 300ms ease-in-out;
 }
 .open{
     cursor: pointer;
@@ -66,15 +75,9 @@ body{
 .top{
     top: 35%;
 }
-.history-group .content{
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    font-size: 22px;
-}
-.history-group i{
-    width: 20%;
-    cursor: pointer;
+.history-group h1{
+    font-size: 25px;
+    text-align: center;
 }
 .history-group li{
     list-style: none;
