@@ -43,8 +43,8 @@ document.getElementById('c').addEventListener('click', () => {
 
 const backSpace = () => {
     let  slice =document.getElementById('screen').value.slice(0,-1);
-    document.getElementById("screen").value=slice
-    if(document.getElementById('screen').value = ''){
+    document.getElementById("screen").value = slice
+    if(document.getElementById('screen').value == ''){
         displayValue = '';
         document.getElementById('screen').value = displayValue;
     }
