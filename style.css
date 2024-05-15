@@ -61,9 +61,20 @@ body{
     flex-direction: column;
     overflow: auto;
     transition: all 400ms ease-in-out;
+    text-align: right;
 }
 .top{
     top: 35%;
+}
+.history-group .content{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 22px;
+}
+.history-group i{
+    width: 20%;
+    cursor: pointer;
 }
 .history-group li{
     list-style: none;
@@ -71,20 +82,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 25px;
     padding: 10px;
-}
-#time-heading{
-    position: absolute;
-    font-size: 14px;
-    top: 4px;
-    left: 20px;
-}
-#calculate-heading{
-    position: absolute;
-    font-size: 14px;
-    top: 4px;
-    right: 20px;
 }
 .calculator-head{
     display: flex;

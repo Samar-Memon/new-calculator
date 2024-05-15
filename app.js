@@ -19,22 +19,29 @@ let timeSpan = document.querySelector('.time');
 let todayTime = new Date();
 let timeLocal = todayTime.toLocaleTimeString();
 
+let createLi;
+
 const calc = () => {
     let res;
     try{
         res = Function('"use strict"; return (' + displayValue + ')')();
-        let createLi = document.createElement('li');
-        createLi.innerHTML = `<span class="time">${timeLocal}</span>
-                                            <span class="calculate">${document.getElementById('screen').value}=</span>`;
+        createLi = document.createElement('li');
+        createLi.innerHTML = `<div class='content'><span class="time">${timeLocal}</span>
+        <span class="calculate">${document.getElementById('screen').value}=</span>
+        </div> <i class='fa-solid fa-trash' onclick='reset()'></i>`;
         document.querySelector('.history-group').appendChild(createLi);
         document.getElementById('top').innerHTML = `${document.getElementById('screen').value}=`;
         document.getElementById('screen').value = res;
         displayValue = res.toString();
     }catch(error){
-        document.getElementById('screen').value = 'Error';
+        document.getElementById('screen').value = '-e';
         displayValue = '';
     }
 };
+
+function reset() {
+    createLi.remove();
+}
 
 document.getElementById('c').addEventListener('click', () => {
     document.getElementById('top').innerHTML = '';
